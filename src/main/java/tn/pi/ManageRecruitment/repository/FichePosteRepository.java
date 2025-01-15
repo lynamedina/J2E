@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import tn.pi.ManageRecruitment.model.FichePoste;
 
 @Repository
-public interface FichePosteRepository extends JpaRepository<FichePoste, Long> {
+public interface FichePosteRepository extends JpaRepository<FichePoste, Integer> {
 }
