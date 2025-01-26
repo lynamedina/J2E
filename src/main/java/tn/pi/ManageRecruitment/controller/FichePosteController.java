@@ -27,6 +27,7 @@ public class FichePosteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+
     @PostMapping
     public FichePoste addFichePoste(@RequestBody FichePoste fichePoste) {
         return fichePosteService.addFichePoste(fichePoste);

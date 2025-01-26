@@ -9,9 +9,12 @@ import java.util.Optional;
 
 @Service
 public class FichePosteService {
+    private FichePosteRepository fichePosteRepository;
 
     @Autowired
-    private FichePosteRepository fichePosteRepository;
+    public FichePosteService(FichePosteRepository fichePosteRepository) {
+        this.fichePosteRepository = fichePosteRepository;
+    }
 
     public List<FichePoste> getAllFichesPoste() {
         return fichePosteRepository.findAll();
