@@ -2,7 +2,7 @@ package tn.pi.ManageRecruitment.model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "personnel")
@@ -32,10 +32,10 @@ public class Personnel {
     private String competences;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "date_of_joining")
-    private Date dateOfJoining;
+    private LocalDate dateOfJoining;
 
     // Getters and Setters
     public Long getId() {
@@ -94,19 +94,19 @@ public class Personnel {
         this.competences = competences;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getDateOfJoining() {
+    public LocalDate getDateOfJoining() {
         return dateOfJoining;
     }
 
-    public void setDateOfJoining(Date dateOfJoining) {
+    public void setDateOfJoining(LocalDate dateOfJoining) {
         this.dateOfJoining = dateOfJoining;
     }
 }
