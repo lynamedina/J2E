@@ -16,6 +16,12 @@ public class FichePoste {
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "competences", nullable = false, columnDefinition = "TEXT")
+    private String competences;
+
+    @Column(name = "experience", nullable = false, columnDefinition = "TEXT")
+    private String experience;
+
 
     // Constructors
     public FichePoste() {
@@ -60,4 +66,22 @@ public class FichePoste {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    public String getCompetences() {
+        return competences;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+
+    public void setCompetences(String competences) {
+        this.competences = competences;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
 }

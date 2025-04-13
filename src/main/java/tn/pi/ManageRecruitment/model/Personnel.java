@@ -3,6 +3,10 @@ package tn.pi.ManageRecruitment.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "personnel")
@@ -25,8 +29,8 @@ public class Personnel {
     private String phoneNumber;
 
     @Lob
-    @Column(name = "cv")
-    private byte[] cv; // Stocke le fichier CV sous forme de tableau de bytes
+    @Column(name = "cv", columnDefinition = "LONGBLOB")
+    private byte[] cv;
 
     @Column(name = "competences")
     private String competences;
@@ -86,14 +90,6 @@ public class Personnel {
         this.cv = cv;
     }
 
-    public String getCompetences() {
-        return competences;
-    }
-
-    public void setCompetences(String competences) {
-        this.competences = competences;
-    }
-
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
@@ -108,5 +104,26 @@ public class Personnel {
 
     public void setDateOfJoining(LocalDate dateOfJoining) {
         this.dateOfJoining = dateOfJoining;
+    }
+
+    public String getCompetences() {
+        return competences;
+    }
+
+    public void setCompetences(String competences) {
+        this.competences = competences;
+    }
+
+
+    @Transient
+    public List<String> getCompetenceList() {
+        if (competences == null || competences.trim().isEmpty()) {                 //Elle lit la chaîne competences (ex: "java,SpringBoot,HTML"),
+            return new ArrayList<>();                                              //Elle la découpe par virgule,
+        }                                                                          //Elle retourne une List<String> proprement nettoyée.
+
+        return Arrays.stream(competences.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .collect(Collectors.toList());
     }
 }

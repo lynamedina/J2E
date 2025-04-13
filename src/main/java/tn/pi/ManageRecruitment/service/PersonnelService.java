@@ -46,8 +46,14 @@ public class PersonnelService {
         return null;
     }
 
-    public void deletePersonnel(Long id) {
-        personnelRepository.deleteById(id);
+    // Méthode pour supprimer un personnel
+    public boolean deletePersonnel(Long id) {
+        Optional<Personnel> personnel = personnelRepository.findById(id);
+        if (personnel.isPresent()) {
+            personnelRepository.delete(personnel.get());
+            return true;
+        }
+        return false;
     }
 
     public Personnel saveCv(Long id, MultipartFile file) throws IOException {
