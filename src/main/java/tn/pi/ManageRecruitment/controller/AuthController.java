@@ -30,6 +30,11 @@ public class AuthController {
         }
     }
 
+    @GetMapping("/register")
+    public String showRegisterForm() {
+        return "register";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam String email,
                         @RequestParam String password,
