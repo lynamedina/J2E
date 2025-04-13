@@ -25,7 +25,6 @@ public class AuthService {
 
         Role role = roleRepository.findByName(roleName)
                 .orElseThrow(() -> new Exception("Rôle non trouvé"));
-
         Set<Role> roles = new HashSet<>();
         roles.add(role);
 

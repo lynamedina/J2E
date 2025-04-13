@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     @GetMapping
-    public String adminPage(Model model) {
-        // Ajouter des attributs au modèle si nécessaire
-        return "admin";
+    public String adminDashboard() {
+        return "admin"; // Correspond à admin.html
     }
 }

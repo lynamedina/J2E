@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ApplicantController {
 
     @GetMapping
-    public String applicantPage(Model model) {
-        // Ajouter des attributs au modèle si nécessaire
-        return "applicant";
+    public String applicantDashboard() {
+        return "applicant"; // Correspond à applicant.html
     }
 }
